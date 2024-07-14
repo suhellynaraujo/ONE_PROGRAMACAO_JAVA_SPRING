@@ -13,15 +13,15 @@
 - Spring Boot
     - ultima versão estável 
 - Metadata 
-     Group
+     - Group
         - br.com.alura
-     Artifact
+     - Artifact
         - screenmatch
-     Name
+     - Name
         - screenmatch
-     Description
+     - Description
         - Primeiro projeto Spring sem web
-     Package name
+     - Package name
         - br.com.alura.screenmatch
 - Packaging
         - jar 
