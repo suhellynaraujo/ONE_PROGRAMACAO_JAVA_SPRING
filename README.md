@@ -6,27 +6,27 @@
 
 ### Configurar o projeto 
 
-   - Project 
+>>  Project 
         - Maven
-   - Language 
+>>  Language 
         - Java
-   - Spring Boot
+>> Spring Boot
         - ultima versão estável 
-   - Metadata 
-        Group
+>> Metadata 
+        - Group
             - br.com.alura
-        Artifact
+        - Artifact
             - screenmatch
-        Name
+        - Name
             - screenmatch
-        Description
+        - Description
             - Primeiro projeto Spring sem web
-        Package name
+        - Package name
             - br.com.alura.screenmatch
-    - Packaging
+>>  Packaging
         - jar 
         - ultima versão Lts
-    - Generate
+>>  Generate
 
 
 
