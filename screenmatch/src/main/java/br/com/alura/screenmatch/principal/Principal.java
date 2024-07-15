@@ -6,9 +6,8 @@ import br.com.alura.screenmatch.model.DadosTemporada;
 import br.com.alura.screenmatch.service.ConsumoApi;
 import br.com.alura.screenmatch.service.ConverteDados;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Principal {
 
@@ -45,6 +44,30 @@ public class Principal {
 
         // expressão lambda(função anonima) para substituir os for acima
         temporadas.forEach(temporada -> temporada.episodios().forEach(episodio -> System.out.println(episodio.titulo())));
+
+        //fluxo de dados - ordenação
+
+//         List<String> nomes = Arrays.asList("Jaque", "Iasmin", "Paulo", "Rodrigo", "Nico");
+//         // operação encadeada
+//         nomes.stream()
+//                 .sorted()
+//                 .limit(3)
+//                 .filter(n -> n.startsWith("N"))
+//                 .map(n -> n.toUpperCase())
+//                 .forEach(System.out::println);
+        // usar o collect caso a lista seja alterada em algum momento
+        // usar o toList caso a lista seja imutavel, não vá ser modificada
+        List<DadosEpisodio> dadosEpisodios = temporadas.stream()
+                .flatMap(temporada -> temporada.episodios().stream())
+                .collect(Collectors.toList());
+        System.out.println("\nTop 5 eposódios: ");
+       // dadosEpisodios.add(new DadosEpisodio( "Teste", 3, "10", "2020-01-01"));
+        dadosEpisodios.stream()
+                // vai filtrar as avaliações e remover da lista os que contem N/A
+                .filter(episodio -> !episodio.avaliacao().equalsIgnoreCase("N/A"))
+                .sorted(Comparator.comparing(DadosEpisodio::avaliacao).reversed())
+                .limit(5)
+                .forEach(System.out::println);
 
     }
 
